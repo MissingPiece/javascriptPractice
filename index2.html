@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        function computerPlay() {
+            let randomChoices = ['Rock','Paper', 'Scissors'];
+            let choice = Math.floor(Math.random() * Math.floor(randomChoices.length))
+            return randomChoices[choice];
+        }
+
+        function playRound (playerSelection, computerSelection) {
+            playerSelection = prompt("Rock, Paper, Scissors?");
+            playerSelection = playerSelection.toString().toLowerCase();
+            computerSelection = computerSelection.toString().toLowerCase();
+            if (playerSelection == computerSelection) {
+                console.log("tie");
+                return 0;
+            }
+            if (playerSelection == "rock") {
+                if( computerSelection == "scissors") {
+                    //you win
+                    console.log("You win! rock beats scissors!");
+                    return 1;
+                } else {
+                    //you lose
+                    console.log("You Lose! rock loses to paper!");
+                    return 2;
+                }
+                
+            }if (playerSelection == "paper") {
+                if( computerSelection == "rock") {
+                    
+                    //you win
+                    console.log("You win! paper beats rock!");
+                    return 1;
+                } else {
+                    //you lose
+                    console.log("You Lose! paper loses to scissors!");
+                    return 2;
+                }
+                
+            }if (playerSelection == "scissors") {
+                if( computerSelection == "paper") {
+                    //you win
+                    console.log("You win! scissors beats paper!");
+                    return 1;
+                } else {
+                    //you lose
+                    console.log("You Lose! scissors loses to rock!");
+                    return 2;
+                }
+                
+            } else {
+                //something went wrong
+            }
+
+        }
+
+        function game () {
+            let i;
+            let j =0;
+            let k =0;
+            for(i = 0; i <= 4; i++) {
+               let result = playRound ("", computerPlay());
+               if (result == 1) {
+                   j++;
+               } else if (result == 2) {
+                    k++
+               } else {
+
+               }
+               console.log("j = " + j + " k = " + k);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
